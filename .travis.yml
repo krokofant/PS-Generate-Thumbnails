@@ -13,6 +13,9 @@ deploy:
     provider: releases
     api_key:
         secure: SC4b1kZaOosKAfLH/cGhRVwfe4csiS1Rk4ZRGtUmPjHZDPp0h4Sf/G9VFv3qXR0fwSLoWR0fysozNcWDUl1faw46F/Yu37/Uq/IFuX745y49qoZtURrkPHiZHJXelm/zpAZzufVrpiWr6OTvNbEPtnnoNrCn2z00bLb/+u97/v7jzKJE+/IKRUQoDoB7+30DZxrYci4fyk7ZOwu1oFHylnsaXZfCKogqAOXInVfZ8/lhur2sVwU35RzMzLEZl3tdI8liQlZik8yiUVgrgYQVdBvB1Zgnn7+wSjucjtReF2vh76bSFOn6FUwazcBoX9b8SpUr+VMiFRWw9LUEIwiViHSB6345HME9KzXh48kFB6dlf0q16NJI0kchVvJevKTc6bz5I0aXnPFA1Nzz2m12/sySSSS5EcAgvGI60ZAU7EM8SxBgs/3vUAj6F6tPVE0zoKdVTA6YV1ghFwRt1/doAHH87e9SHHt/vF9hCvrkWh8KhZviKZCgwNH1wQvMY1CdclRDDovXcenqxdBilm9ooPy8G/P7TRchSnqKzWfL04pOiVt7yW+C+nnh9M/Pi1nkubTqZymhiS6pqm16BD14lTE9LhuzA/b4rVsGlZL+RR9/A8eXaD2m1m98o3jh7y6kAwrCwNBdjOPUYbgcD+jqlRN/lKSvr6RGOJNu/grUWxo=
+    skip_cleanup: true
+    draft: false
+    file_glob: true
     file: "*.zip"
     on:
         repo: krokofant/PS-Generate-Thumbnails
