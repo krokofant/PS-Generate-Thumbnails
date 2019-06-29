@@ -1,0 +1,22 @@
+os: windows
+language: csharp
+mono: none
+script:
+    - echo "🚀🚀🚀"
+after_success:
+    - git config --local user.name "krokofant"
+    - git config --local user.email "krokofant@users.noreply.github.com"
+    - if [ -z "$TRAVIS_TAG" ]; then export TRAVIS_TAG=$(powershell -NoProfile -ExecutionPolicy Bypass -Command "./bin/get-version-tag.ps1"); git tag -a $TRAVIS_TAG -m "Released $TRAVIS_TAG"; fi;
+before_deploy:
+    - 7z a "$(basename "$PWD").zip" *.psd1 *.psm1 *.ps1
+deploy:
+    provider: releases
+    api_key:
+        secure: AqUvU1B1ikElyDvrAz9YmOYdJxzXm2mGFIe6eOghuzARJ5VsSeQEF5T6jx7linMy/Hz9O6yUkLOyZynS5GuNaQOCO5ZRtpJ+EGJCax76hLZskwvwzvHcb/nFx1Dhq22IqPTPYQ1H1xTI7cXbD184VjeIU+fAr4exMEM2ey1+p9UMgg6P+PrI9xnDZy8WvXqDLQGcZeCkZ3mGJt9XOfqzdQnYm76Vymq0Bzzb953iob68yVEji+t+dkKBo6zKhMwtKRFBXarovDIfq+kkp8/3tfZo2ko/VkugdCad1y4gWSrNo6QhBSymqgmAMwDpn2VwfhTBVdDCCFL9qE6WkXvm56VfM9qT7lyzoyfzb6eP+iLZ7Yc4O77ZQ7dQr1fLH//v9ud1jfyDpQizDjzqYj1cD+6rBDZC4TD7WM/NgeukcNq/wkRybDvTc/bN+nY0UfAykX66J53f++QYo4vuZ8PCd34Ec9naCnasqw1i1sGQLnRMB+hnMaOX0bCcblyvPxCFgNCU41XuloahxG5vXwIYvyqcHzxpsCSZwFZohlvPR0SmMZdjhNcHo06HFtHLPpZgSU0cpgah/rw9JaGeflO+VQwNfb5RJ8aQWJe6fo1roKBmtaidhkKRWBuFLTNVadRAbQRrIj13/yVs5HFWvFFWRZq6hKkTlNJCZ8fFLsfc7b0=
+    skip_cleanup: true
+    draft: false
+    file_glob: true
+    file: "*.zip"
+    on:
+        repo: krokofant/PS-Generate-Thumbnails
+        tags: true
