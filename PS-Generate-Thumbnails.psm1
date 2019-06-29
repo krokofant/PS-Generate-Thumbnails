@@ -11,7 +11,7 @@ function WaitForCompletion {
     "`n`nDone!"
 }
 
-function GenerateThumbnails($paths) {
+function GenerateThumbnailsInternal($paths) {
     "`nAdding missing thumbnails for:"
     foreach ($path in $paths) {
         $absPath = $path.FullName
@@ -30,26 +30,28 @@ function GenerateThumbnails($paths) {
     }
 }
 
-$videosWithoutThumbnails = @()
+function GenerateThumbnails {
+    $videosWithoutThumbnails = @()
 
-if ($args.Count -gt 0) {
-    $videosWithoutThumbnails = $args | ForEach-Object { Get-ChildItem (Join-Path $pwd $_)  }
-}
-else {
-    $videosWithoutThumbnails = Get-ChildItem -LiteralPath $pwd -Depth 2 -Recurse |
-        Where-Object {
-        $_.Name -match '(?<!sample).(ts|avi|mkv|mp4)$' -and
-        !(Test-Path -LiteralPath ($_.FullName -replace "(?!\.)[^.]+$", "jpg"))
+    if ($args.Count -gt 0) {
+        $videosWithoutThumbnails = $args | ForEach-Object { Get-ChildItem (Join-Path $pwd $_)  }
     }
-}
+    else {
+        $videosWithoutThumbnails = Get-ChildItem -LiteralPath $pwd -Depth 2 -Recurse |
+            Where-Object {
+            $_.Name -match '(?<!sample).(ts|avi|mkv|mp4)$' -and
+            !(Test-Path -LiteralPath ($_.FullName -replace "(?!\.)[^.]+$", "jpg"))
+        }
+    }
 
-if ($videosWithoutThumbnails.Count -gt 0) {
-    GenerateThumbnails $videosWithoutThumbnails
-}
-else {
-    "`n`tFound no videos without thumbnails`n"
-}
+    if ($videosWithoutThumbnails.Count -gt 0) {
+        GenerateThumbnailsInternal $videosWithoutThumbnails
+    }
+    else {
+        "`n`tFound no videos without thumbnails`n"
+    }
 
-if ($processes.Count -gt 0) {
-    WaitForCompletion
+    if ($processes.Count -gt 0) {
+        WaitForCompletion
+    }
 }
