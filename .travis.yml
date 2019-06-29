@@ -12,10 +12,7 @@ before_deploy:
 deploy:
     provider: releases
     api_key:
-        secure: AqUvU1B1ikElyDvrAz9YmOYdJxzXm2mGFIe6eOghuzARJ5VsSeQEF5T6jx7linMy/Hz9O6yUkLOyZynS5GuNaQOCO5ZRtpJ+EGJCax76hLZskwvwzvHcb/nFx1Dhq22IqPTPYQ1H1xTI7cXbD184VjeIU+fAr4exMEM2ey1+p9UMgg6P+PrI9xnDZy8WvXqDLQGcZeCkZ3mGJt9XOfqzdQnYm76Vymq0Bzzb953iob68yVEji+t+dkKBo6zKhMwtKRFBXarovDIfq+kkp8/3tfZo2ko/VkugdCad1y4gWSrNo6QhBSymqgmAMwDpn2VwfhTBVdDCCFL9qE6WkXvm56VfM9qT7lyzoyfzb6eP+iLZ7Yc4O77ZQ7dQr1fLH//v9ud1jfyDpQizDjzqYj1cD+6rBDZC4TD7WM/NgeukcNq/wkRybDvTc/bN+nY0UfAykX66J53f++QYo4vuZ8PCd34Ec9naCnasqw1i1sGQLnRMB+hnMaOX0bCcblyvPxCFgNCU41XuloahxG5vXwIYvyqcHzxpsCSZwFZohlvPR0SmMZdjhNcHo06HFtHLPpZgSU0cpgah/rw9JaGeflO+VQwNfb5RJ8aQWJe6fo1roKBmtaidhkKRWBuFLTNVadRAbQRrIj13/yVs5HFWvFFWRZq6hKkTlNJCZ8fFLsfc7b0=
-    skip_cleanup: true
-    draft: false
-    file_glob: true
+        secure: SC4b1kZaOosKAfLH/cGhRVwfe4csiS1Rk4ZRGtUmPjHZDPp0h4Sf/G9VFv3qXR0fwSLoWR0fysozNcWDUl1faw46F/Yu37/Uq/IFuX745y49qoZtURrkPHiZHJXelm/zpAZzufVrpiWr6OTvNbEPtnnoNrCn2z00bLb/+u97/v7jzKJE+/IKRUQoDoB7+30DZxrYci4fyk7ZOwu1oFHylnsaXZfCKogqAOXInVfZ8/lhur2sVwU35RzMzLEZl3tdI8liQlZik8yiUVgrgYQVdBvB1Zgnn7+wSjucjtReF2vh76bSFOn6FUwazcBoX9b8SpUr+VMiFRWw9LUEIwiViHSB6345HME9KzXh48kFB6dlf0q16NJI0kchVvJevKTc6bz5I0aXnPFA1Nzz2m12/sySSSS5EcAgvGI60ZAU7EM8SxBgs/3vUAj6F6tPVE0zoKdVTA6YV1ghFwRt1/doAHH87e9SHHt/vF9hCvrkWh8KhZviKZCgwNH1wQvMY1CdclRDDovXcenqxdBilm9ooPy8G/P7TRchSnqKzWfL04pOiVt7yW+C+nnh9M/Pi1nkubTqZymhiS6pqm16BD14lTE9LhuzA/b4rVsGlZL+RR9/A8eXaD2m1m98o3jh7y6kAwrCwNBdjOPUYbgcD+jqlRN/lKSvr6RGOJNu/grUWxo=
     file: "*.zip"
     on:
         repo: krokofant/PS-Generate-Thumbnails
