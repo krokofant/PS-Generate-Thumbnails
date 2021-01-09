@@ -24,7 +24,7 @@ iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 scoop bucket add powershell-tools https://github.com/krokofant/scoop-powershell-bucket.git
 ```
 
-### 3. Install PS-Install-If-Missing
+### 3. Install PS-Generate-Thumbnails
 
 ```powershell
 scoop install PS-Generate-Thumbnails
