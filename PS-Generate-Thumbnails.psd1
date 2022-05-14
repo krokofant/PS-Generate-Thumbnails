@@ -9,5 +9,8 @@
 
     Description       = "Generate thumbnails using mtn"
 
-    FunctionsToExport = @('GenerateThumbnails')
+    FunctionsToExport = @(
+        'New-Thumbnails'
+        'Update-MtnPackage'
+        )
 }
