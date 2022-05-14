@@ -8,7 +8,7 @@ after_success:
     - git config --local user.email "krokofant@users.noreply.github.com"
     - if [ -z "$TRAVIS_TAG" ]; then export TRAVIS_TAG=$(powershell -NoProfile -ExecutionPolicy Bypass -Command "./bin/get-version-tag.ps1"); git tag -a $TRAVIS_TAG -m "Released $TRAVIS_TAG"; fi;
 before_deploy:
-    - 7z a "$(basename "$PWD").zip" *.psd1 *.psm1 *.ps1
+    - 7z a "$(basename "$PWD").zip" PS-Generate-Thumbnails
 deploy:
     provider: releases
     api_key:
