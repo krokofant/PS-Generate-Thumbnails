@@ -1,4 +1,4 @@
-$mtnPath = Join-Path $PSScriptRoot mtn mtn.exe
+$mtnPath = (Get-Command mtn -ErrorAction Ignore).Source ?? ''
 $processes = New-Object System.Collections.ArrayList
 
 function EscapeString($s) {
@@ -32,7 +32,11 @@ function GenerateThumbnailsInternal($paths) {
 
 function New-Thumbnails {
     if (!(Test-Path $mtnPath)) {
-        Write-Error "mtn is missing. Run Update-MtnPackage to download mtn"
+        if([System.Environment]::OSVersion.Platform -eq 'Win32NT') {
+            Write-Error "mtn is missing. To install run and restart shell: winget install -e --id wahibre.mtn"
+        } else {
+            Write-Error "mtn is missing. Look for install instructions at https://gitlab.com/movie_thumbnailer/mtn/-/wikis/home"
+        }
         return;
     }
     $videosWithoutThumbnails = @()

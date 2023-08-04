@@ -13,5 +13,4 @@ New-Thumbnails
 
 ```powershell
 Install-Module -Name PS-Generate-Thumbnails
-Update-MtnPackage # Download mtn dependency
 ```
